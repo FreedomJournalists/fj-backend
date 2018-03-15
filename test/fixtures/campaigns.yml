@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyString
+  money_raised: 1.5
+  goal: 
+
+two:
+  title: MyString
+  description: MyString
+  money_raised: 1.5
+  goal: 

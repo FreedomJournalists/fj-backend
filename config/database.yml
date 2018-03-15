@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: fj-development
+  pool: 5
+  username: tonycioara
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: fj-test
+  pool: 5
+  username: tonycioara
+  password:
+
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: fj-production
+  pool: 5
+  username: tonycioara
+  password:
