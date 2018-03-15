@@ -3,11 +3,11 @@
 one:
   title: MyString
   description: MyString
-  money_raised: 1.5
-  goal: 
+  money_raise: 1.5
+  goal: 1
 
 two:
   title: MyString
   description: MyString
-  money_raised: 1.5
-  goal: 
+  money_raise: 1.5
+  goal: 1
