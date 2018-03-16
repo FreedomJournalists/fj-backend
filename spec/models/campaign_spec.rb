@@ -76,4 +76,16 @@ RSpec.describe Campaign, type: :model do
             expect(bad_campaign).to_not be_valid
         end
     end
+
+    describe "Associations" do
+        it "should have many pledges" do
+            assoc = Campaign.reflect_on_association(:pledges)
+            expect(assoc.macro).to eq :has_many
+        end
+
+        it "should belong to user" do
+            assoc = Campaign.reflect_on_association(:user)
+            expect(assoc.macro).to eq :belongs_to
+        end
+    end
 end

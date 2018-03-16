@@ -91,4 +91,16 @@ RSpec.describe Pledge, type: :model do
             expect(bad_pledge).to_not be_valid
         end
     end
+
+    describe "Associations" do
+        it "should should belong to campaign" do
+            assoc = Pledge.reflect_on_association(:campaign)
+            expect(assoc.macro).to eq :belongs_to
+        end
+
+        it "should belong to user" do
+            assoc = Pledge.reflect_on_association(:user)
+            expect(assoc.macro).to eq :belongs_to
+        end
+    end
 end
