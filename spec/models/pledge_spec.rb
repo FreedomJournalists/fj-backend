@@ -17,25 +17,25 @@ RSpec.describe Pledge, type: :model do
                 message: nil,
                 date: DateTime.now.utc
             )
-            expect(campaign).to be_valid
+            expect(pledge).to be_valid
         end
 
         it "is invalid without money" do
-            pledge = Pledge.new(
+            bad_pledge = Pledge.new(
                 money: nil,
                 message: "Test message",
                 date: DateTime.now.utc
             )
-            expect(campaign).to be_valid
+            expect(bad_pledge).to_not be_valid
         end
 
         it "is invalid without a date" do
-            pledge = Pledge.new(
+            bad_pledge = Pledge.new(
                 money: 5.2,
                 message: "Test message",
                 date: nil
             )
-            expect(campaign).to be_valid
+            expect(bad_pledge).to_not be_valid
         end
     end
 end
