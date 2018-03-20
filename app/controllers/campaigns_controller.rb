@@ -25,6 +25,8 @@ class CampaignsController < ApplicationController
   # POST /campaigns.json
   def create
     @campaign = Campaign.new(campaign_params)
+    # Add the current logged in user as the creator of the campaign
+    @campaign.user = current_user
 
     respond_to do |format|
       if @campaign.save

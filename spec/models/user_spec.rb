@@ -7,7 +7,8 @@ RSpec.describe User, type: :model do
                 first_name: "Test first name",
                 last_name: "Test last name",
                 nickname: "Test nickname",
-                email: "Test email"
+                email: "Test email",
+                password: "Test password"
             )
             expect(user).to be_valid
         end
@@ -17,7 +18,8 @@ RSpec.describe User, type: :model do
                 first_name: nil,
                 last_name: "Test last name",
                 nickname: "Test nickname",
-                email: "Test email"
+                email: "Test email",
+                password: "Test password"
             )
             expect(bad_user).to_not be_valid
         end
@@ -27,7 +29,8 @@ RSpec.describe User, type: :model do
                 first_name: "Test first name",
                 last_name: nil,
                 nickname: "Test nickname",
-                email: "Test email"
+                email: "Test email",
+                password: "Test password"
             )
             expect(bad_user).to_not be_valid
         end
@@ -37,7 +40,8 @@ RSpec.describe User, type: :model do
                 first_name: "Test first name",
                 last_name: "Test last name",
                 nickname: nil,
-                email: "Test email"
+                email: "Test email",
+                password: "Test password"
             )
             expect(bad_user).to_not be_valid
         end
@@ -47,7 +51,19 @@ RSpec.describe User, type: :model do
                 first_name: "Test first name",
                 last_name: "Test last name",
                 nickname: "Test nickname",
-                email: nil
+                email: nil,
+                password: "Test password"
+            )
+            expect(bad_user).to_not be_valid
+        end
+
+        it "is invalid without a password" do
+            bad_user = User.new(
+                first_name: "Test first name",
+                last_name: "Test last name",
+                nickname: "Test nickname",
+                email: "Test email",
+                password: nil
             )
             expect(bad_user).to_not be_valid
         end
