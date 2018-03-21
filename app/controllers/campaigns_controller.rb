@@ -17,10 +17,6 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.new
   end
 
-  # GET /campaigns/1/edit
-  def edit
-  end
-
   # POST /campaigns
   # POST /campaigns.json
   def create
@@ -28,15 +24,11 @@ class CampaignsController < ApplicationController
     # Add the current logged in user as the creator of the campaign
     @campaign.user = current_user
 
-    respond_to do |format|
       if @campaign.save
-        format.html { redirect_to @campaign, notice: 'Campaign was successfully created.' }
-        format.json { render :show, status: :created, location: @campaign }
-      else
-        format.html { render :new }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
+        render json: @campaign, status: :created
+    else
+        render json: @campaign.errors, status: :unprocessable_entity
       end
-    end
   end
 
   # PATCH/PUT /campaigns/1
