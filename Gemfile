@@ -32,6 +32,12 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 gem 'active_model_serializers'
 
+gem 'paperclip', '~> 5.1'
+
+gem 'aws-sdk', '~> 2.3.0'
+
+gem 'active_model_serializers'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

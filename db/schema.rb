@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180320165712) do
+ActiveRecord::Schema.define(version: 20180326213309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,10 @@ ActiveRecord::Schema.define(version: 20180320165712) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "image_file_file_name"
+    t.string "image_file_content_type"
+    t.integer "image_file_file_size"
+    t.datetime "image_file_updated_at"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
@@ -48,6 +52,10 @@ ActiveRecord::Schema.define(version: 20180320165712) do
     t.string "token"
     t.string "password_hash"
     t.string "password_salt"
+    t.string "profile_image_file_file_name"
+    t.string "profile_image_file_content_type"
+    t.integer "profile_image_file_file_size"
+    t.datetime "profile_image_file_updated_at"
     t.index ["nickname", "email"], name: "index_users_on_nickname_and_email", unique: true
     t.index ["token"], name: "index_users_on_token"
   end

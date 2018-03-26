@@ -2,9 +2,11 @@ class User < ApplicationRecord
     has_many :campaigns
     has_many :pledges
     has_many :causes, through: :pledges, class_name: "Campaign"
+    has_attached_file :profile_image_file
 
     validates :first_name, :last_name, :password, presence: true
     validates :nickname, :email, presence: true, uniqueness: true
+    validates_attachment_content_type :profile_image_file, content_type: /\Aimage/
 
     # Hash password before saving a user
     before_save :encrypt_password

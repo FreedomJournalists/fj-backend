@@ -15,7 +15,7 @@ class PledgesController < ApplicationController
   # POST /pledges
   # POST /pledges.json
   def create
-    @pledge = Pledge.new(pledge_params)
+    @pledge = Pledge.new(set_pledge_for_create)
     @pledge.user = current_user
 
     if @pledge.save
