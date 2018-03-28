@@ -5,11 +5,13 @@ class CampaignsController < ApplicationController
   # GET /campaigns.json
   def index
     @campaigns = Campaign.all
+    render json: @campaigns, status: :ok
   end
 
   # GET /campaigns/1
   # GET /campaigns/1.json
   def show
+     render json: @campaign, status: :ok
   end
 
   # GET /campaigns/new
@@ -26,7 +28,7 @@ class CampaignsController < ApplicationController
 
       if @campaign.save
         render json: @campaign, status: :created
-    else
+      else
         render json: @campaign.errors, status: :unprocessable_entity
       end
   end
