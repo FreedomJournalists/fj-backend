@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
     def update
       @user = current_user
 
-      if @user.update(update_params)
-        render json: @v1_user, status: :ok
-        else
-        render json: @v1_user.errors, status: :unprocessable_entity
+      if @user.update(update_user_params)
+        render json: @user, status: :ok
+      else
+        render json: @user.errors, status: :unprocessable_entity
       end
     end
 
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
         params.permit(:email, :password)
       end
 
-      def update_params
+      def update_user_params
         params.permit(:profile_image_file, :profile_image_file_file_name, :profile_image_file_content_type, :profile_image_file_file_size, :profile_image_file_updated_at)
       end
 end
