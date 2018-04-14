@@ -36,11 +36,11 @@ class CampaignsController < ApplicationController
   # PATCH/PUT /campaigns/1
   # PATCH/PUT /campaigns/1.json
   def update
-    campaign = Campaign.where(id: params[:id])
-    if campaign.update(update_campaign_params)
-      render json: campaign
+    @campaign = Campaign.where(id: params[:id])
+    if @campaign.update(update_campaign_params)
+      render json: @campaign
     else
-      render json: campaign.errors, status: :unprocessable_entity
+      render json: @campaign.errors, status: :unprocessable_entity
     end
   end
 
