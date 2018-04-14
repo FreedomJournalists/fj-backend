@@ -36,14 +36,11 @@ class CampaignsController < ApplicationController
   # PATCH/PUT /campaigns/1
   # PATCH/PUT /campaigns/1.json
   def update
-    respond_to do |format|
-      if @campaign.update(campaign_params)
-        format.html { redirect_to @campaign, notice: 'Campaign was successfully updated.' }
-        format.json { render :show, status: :ok, location: @campaign }
-      else
-        format.html { render :edit }
-        format.json { render json: @campaign.errors, status: :unprocessable_entity }
-      end
+    campaign = Campaign.where(id: params[:id])
+    if campaign.update(update_campaign_params)
+      render json: campaign
+    else
+      render json: campaign.errors, status: :unprocessable_entity
     end
   end
 
@@ -66,5 +63,9 @@ class CampaignsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def campaign_params
       params.permit(:title, :description, :money_raised, :goal, :image_file)
+    end
+
+    def update_campaign_params
+     params.permit(:image_file, :image_file_file_name, :image_file_content_type, :image_file_file_size, :image_file_updated_at)
     end
 end

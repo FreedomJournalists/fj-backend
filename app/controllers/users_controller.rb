@@ -27,12 +27,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        render json: @user, status: :ok, location: @user
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
+    user = User.where(id: params[:id])
+    if user.update(update_user_params)
+      render json: user
+    else
+      render json: user.errors, status: :unprocessable_entity
     end
   end
 
