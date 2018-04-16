@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :causes, through: :pledges, class_name: "Campaign"
     has_attached_file :profile_image_file
 
-    validates :first_name, :last_name, :password, presence: true
+    validates :first_name, :last_name, :password, presence: true, :on => :create
     validates :nickname, :email, presence: true, uniqueness: true
     validates_attachment_content_type :profile_image_file, content_type: /\Aimage/
 

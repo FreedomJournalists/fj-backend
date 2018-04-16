@@ -28,6 +28,6 @@ class SessionsController < ApplicationController
       end
 
       def update_user_params
-        params.permit(:profile_image_file, :profile_image_file_file_name, :profile_image_file_content_type, :profile_image_file_file_size, :profile_image_file_updated_at)
+        params.permit(:profile_image_file)
       end
 end

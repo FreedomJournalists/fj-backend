@@ -27,7 +27,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    @user = User.where(id: params[:id])
     if @user.update(update_user_params)
       render json: @user
     else
