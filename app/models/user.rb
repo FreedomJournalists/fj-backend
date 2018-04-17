@@ -2,7 +2,10 @@ class User < ApplicationRecord
     has_many :campaigns
     has_many :pledges
     has_many :causes, through: :pledges, class_name: "Campaign"
-    has_attached_file :profile_image_file
+    has_attached_file :profile_image_file, :styles => {
+    :original => "200x200#" },
+    :convert_options => {
+    :thumb => "-quality 75 -strip"}
 
     validates :first_name, :last_name, :password, presence: true, :on => :create
     validates :nickname, :email, presence: true, uniqueness: true
